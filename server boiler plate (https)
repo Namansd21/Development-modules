@@ -1,0 +1,27 @@
+onst express = require('express')
+const fs = require('fs')
+const path = require('path')
+const helmet = require('helmet')
+const app = express();
+const https = require('https')
+const cors = require('cors')
+const hbs = require('hbs')
+
+// builtin middlewares
+app.use(helmet())
+app.use(cors())
+app.use(express.static(path.join(__dirname,'..','public')))      // add path accordingly 
+app.set('views',path.join(__dirname,'..','public/views'))        // add path accordingly 
+app.set("view engine","hbs")                                    // you can use any templating engine you want just install the package using command "npm install <package name>"
+app.use(express.json())
+app.use(express.urlencoded({extended:false}))
+
+
+
+// connection
+https.createServer({
+        key:fs.readFileSync('../key.pem'),      // key.pem and cert.pem are ssl certificates
+        cert:fs.readFileSync('../cert.pem')     // to generate self signed ssl certificate open git bash terminal in vs code and type following command
+    },app).listen(3000,()=>{                    //openssl req -x509 -newkey rsa:4096 -nodes -keyout key.pem -out cert.pem -days<no of days you want the validity of certificate(remove "<>" also)>
+        console.log('server is listening....')
+    })
