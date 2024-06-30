@@ -1,0 +1,29 @@
+const passport = require('passport')   // use npm install passport@0.5
+const googlestrategy = require('passport-google-oauth20')
+const localstrategy = require('passport-local')
+const cookies = require('cookie-session')
+
+// googlestrategy config
+passport.use(new googlestrategy({
+    callbackURL:'/auth/google/callback',
+    clientID:"",   // enter your client id
+    clientSecret:"",  // enter your client secret
+},async (acessToken,refreshToken,profile,done)=>{
+   // add your data or update data on database
+   done(null,profile)
+   
+}))
+
+
+//local strategy
+passport.use(new localstrategy({
+    usernameField:"Email",
+    passwordField:"Password",
+    passReqToCallback: true
+  },async (req,Email,Password,done)=>{
+   // add your data or update data on database
+   // create a user object and pass user object in done in place of ""
+
+    done(null,"")
+
+  }))
