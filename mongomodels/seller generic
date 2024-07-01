@@ -1,0 +1,40 @@
+const mongoose = require('mongoose');
+
+let seller = new mongoose.Schema({
+    Name:{
+        type:String,
+        required:true
+    },
+    email:{
+        type:String,
+        required:true
+    },
+    mailverified:{
+        type:Boolean,
+        required:true
+    },
+    address:{
+        type:String,
+        required:true
+    },
+    upiid:{
+        type:String,
+        required:true
+    },
+    phno:{
+        type:String,
+        required:true
+    },
+    GSTIN:{
+         type:String,
+        required:true
+    },
+    aadharnumber:{
+         type:String,
+        required:true
+    },
+    
+
+})
+
+module.exports = mongoose.Model('seller',seller);
