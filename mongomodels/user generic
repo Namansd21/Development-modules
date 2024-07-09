@@ -1,0 +1,41 @@
+const mongoose = require('mongoose')
+
+const addressSchema = new mongoose.Schema({
+    Street: {type:String,required:true},
+    City: {type:String,required:true},
+    State: {type:String,required:true},
+    PinCode:{type:String,required:true},
+    HouseNo:{type:String,required:true}
+  });
+
+let user = new mongoose.Schema({
+    FirstName:{
+        type:String,
+        required:true
+    },
+    LastName:{
+        type:String,
+        required:true
+    },
+    GoogleId:{
+        type:String,
+        default:''
+    },
+    Email:{
+        type:String,
+        required:true
+    },
+    MailVerified:{
+        type:Boolean,
+        default:false,
+    },
+    Phno:{
+        type:String,
+        required:true
+    },
+    Addresses:[addressSchema]
+
+
+})
+
+module.exports = mongoose.Model('buyer',buyer);
