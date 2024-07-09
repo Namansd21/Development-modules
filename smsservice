@@ -1,0 +1,22 @@
+const Nexmo = require('nexmo');
+require('dotenv').config();
+
+let nexmo = new Nexmo({
+    apiKey:process.env.API_KEY,
+    apiSecret:process.env.API_SECRET
+})
+
+
+
+const sendsms = async (phone)=>{
+    nexmo.message.sendSms("Divueens", "+91"+phone, `Dear customer,This is System Generated Message From Divueens Your One Time Password (OTP) is ${otp},Please don't share it with anyone`,{type:"unicode"},(err,response)=>{
+    if(err)
+    {
+        console.log('an error occured')
+    }
+    else{
+    
+    }
+});}
+
+module.exports = sendsms
