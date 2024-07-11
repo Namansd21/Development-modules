@@ -1,0 +1,13 @@
+const router = require('express').Router();
+const sendEmail = require('./mailfunction')  // to be created seperately
+
+router.post('/sendmail', (req,res)=>{
+    try{
+       res.send(sendEmail(req.body.fromMail,req.body.toMail,req.body.content,req.body.subject))
+    }
+    catch(error){
+        console.log(error,'error occured')
+        res.send(error)
+    }
+})
+module.exports = router;
