@@ -1,0 +1,30 @@
+<!-- views/subscriptions/show.hbs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Subscription</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-4 mb-4">Subscription Details</h1>
+
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Plan: {{ subscription.plan }}</h5>
+                <p class="card-text">Cost: {{ subscription.cost }}</p>
+                <p class="card-text">Start Date: {{ subscription.startDate }}</p>
+                <p class="card-text">End Date: {{ subscription.endDate }}</p>
+                <a href="/subscriptions" class="btn btn-primary">Back to Subscriptions</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript libraries -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
